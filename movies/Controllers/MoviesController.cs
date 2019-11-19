@@ -14,8 +14,13 @@ namespace movies.Controllers
         // GET: Movies
         public ActionResult Index()
         {
+
+          
+
             return View();
         }
+
+     
 
         public ActionResult Random()
         {
