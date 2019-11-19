@@ -27,9 +27,16 @@ namespace movies.Controllers
             };
         }
 
-        public ViewResult Details(int id)
+        public ActionResult Details(int id)
         {
             var cust = GetCustomers().SingleOrDefault(x => x.Id == id);
+
+            if (cust == null)
+            {
+                return HttpNotFound();
+            }
+               
+
             return View(cust);
         }
 
