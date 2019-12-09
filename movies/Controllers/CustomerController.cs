@@ -35,15 +35,15 @@ namespace movies.Controllers
 
         public ActionResult Details(int id)
         {
-            var cust = _context.Customers.Include(x => x.MembershipType).SingleOrDefault(x => x.Id == id);
+            var customer = _context.Customers.Include(x => x.MembershipType).SingleOrDefault(x => x.Id == id);
 
-            if (cust == null)
+            if (customer == null)
             {
                 return HttpNotFound();
             }
                
 
-            return View(cust);
+            return View(customer);
         }
 
     }
