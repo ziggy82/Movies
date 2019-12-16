@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using movies.Models;
+using movies.ViewModels;
 
 namespace movies.Controllers
 {
@@ -31,7 +32,39 @@ namespace movies.Controllers
             return View(customers);
         }
 
-       
+        public ActionResult New()
+        {
+            var membershipType = _context.MembershipTypes.ToList();
+
+            var viewModel = new CustomerFormViewModel
+            {
+                MembershipTypes = membershipType
+            };
+            return View("CustomerForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if (customer.Id == 0)
+            {
+                _context.Customers.Add(customer);
+            }
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+
+                customerInDb.Name = customer.Name;
+                customerInDb.BirthDate = customer.BirthDate;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+
+            }
+           
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
 
         public ActionResult Details(int id)
         {
@@ -46,5 +79,21 @@ namespace movies.Controllers
             return View(customer);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+            return View("CustomerForm",viewModel);
+        }
     }
 }

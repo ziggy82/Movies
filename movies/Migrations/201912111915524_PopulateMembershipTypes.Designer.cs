@@ -7,13 +7,13 @@ namespace movies.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class SetNameOfMembershipTypes : IMigrationMetadata
+    public sealed partial class PopulateMembershipTypes : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SetNameOfMembershipTypes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateMembershipTypes));
         
         string IMigrationMetadata.Id
         {
-            get { return "201912090244389_SetNameOfMembershipTypes"; }
+            get { return "201912111915524_PopulateMembershipTypes"; }
         }
         
         string IMigrationMetadata.Source

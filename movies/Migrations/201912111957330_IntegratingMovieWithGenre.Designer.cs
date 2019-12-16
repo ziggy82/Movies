@@ -7,13 +7,13 @@ namespace movies.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UpdateBirthDateNotRequired : IMigrationMetadata
+    public sealed partial class IntegratingMovieWithGenre : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateBirthDateNotRequired));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(IntegratingMovieWithGenre));
         
         string IMigrationMetadata.Id
         {
-            get { return "201912090302407_UpdateBirthDateNotRequired"; }
+            get { return "201912111957330_IntegratingMovieWithGenre"; }
         }
         
         string IMigrationMetadata.Source

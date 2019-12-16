@@ -7,13 +7,13 @@ namespace movies.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddBirthdateToCustomer : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddBirthdateToCustomer));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201912090254457_AddBirthdateToCustomer"; }
+            get { return "201912101345013_Initial"; }
         }
         
         string IMigrationMetadata.Source
